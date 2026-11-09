@@ -1,0 +1,118 @@
+<!-- wp:paragraph -->
+<p><em>After the First World War, Labour swept past the Liberals. It is tempting to think grief and anger at the slaughter drove voters to the new party. I set the names on {{n.places|int}} places' war memorials against every election from 1906 to 1924 to find out. The places that lost more men swung to Labour less, not more.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/war-dead-labour/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.24092044">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>On 14 December 1918, a month after the guns stopped, Britain voted for the first time in eight years. Almost every man over 21, and women over 30 who met a property test, could now vote, and the electorate in Great Britain was {{desc.elect_ratio|f1}} times the size it had been in 1910. Labour's share of the vote in contested seats rose from {{desc.lab_1910|f1}}% to {{desc.lab_1918|f1}}%, and by 1924 it was the main opposition. The Liberals, the party of government when the war began, never recovered.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Historians still argue about why. Some point to the new voters, some to the Liberal split over the war, some to Labour's growing strength in the unions before 1914. And there is a darker idea: that the slaughter itself turned people against the old order. In Italy and Germany, places that lost more men did go on to back radical parties. Did the same happen here, towards Labour?</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>As far as I can find, nobody has tested this for how Britain voted between the parties, because there is no count of the dead by constituency and no map of the 1918 seats. But there are the war memorials. Almost every village, town and parish put up a cross, a plaque or a board with the names of its dead, and the Imperial War Museums' War Memorials Register records how many names most of them carry. I had already counted them place by place for <a href="https://maps.tristanhotham.com/war-memorials/">an earlier study</a>, taking one community memorial per place so that nobody is counted twice. Here I set those names against every election result from 1906 to 1924.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">More names, less Labour</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Because the 1918 seats were new, I compared the same ground before and after the war: {{n.units|int}} counties, county towns and boroughs, with every seat and every memorial placed inside one of them. In the typical one there were {{desc.rate_median|f0}} names on community memorials for every 1,000 voters of 1918.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_maps.png|Two maps of Great Britain side by side: memorial names per 1,000 voters, darkest in the Scottish Highlands and some rural English counties, and Labour's gain from 1910 to 1918, darkest in the coalfields and industrial north|Left: names on community war memorials per 1,000 voters of 1918. Right: how much Labour's share of the vote grew between 1910 and 1918.}}
+
+<!-- wp:paragraph -->
+<p>Put the two side by side and they do not match. Where there were more names per voter, Labour grew less. Comparing places in the same region, and allowing for how built up they were and how Labour and the Liberals had done in 1910, each step of {{desc.rate_sd|f0}} more names per 1,000 voters went with a Labour gain {{T.lab_b_abs|f1}} points smaller. The average gain was {{desc.d_lab18_mean|f1}} points, so this is a modest difference. It is also not a sure thing: I looked at four outcomes, and once I allow for that, a gap this size could turn up by chance about one time in six. Read it as a hint, not a settled finding.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_scatter.png|Scatter chart of county and borough units with names per 1,000 voters along the bottom and Labour's gain up the side, both adjusted, with a gently falling line|Each dot is a county or borough. Both measures are adjusted for region, density and the 1910 vote.}}
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>The places that gave most men to the war were not the places where Labour advanced.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Not there before the war, wider after it</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The obvious worry is that the memorials are just picking out a kind of place: rural, settled, never very likely to vote Labour. If so, they should predict how places voted before the war too. They do not. Between 1906 and 1910, and between the two elections of 1910, the names predict nothing at all. The gap opens in 1918, and by 1922 it is wider still: Labour's gain since 1910 was {{T.lab22_b_abs|f1}} points smaller for the same step, and the Liberals held up {{T.lib22_b|f1}} points better.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_path.png|Chart of estimates with error bars for Labour and the Liberals across six election pairs: near zero before the war, Labour below zero from 1918 to 1924 and lowest in 1922, the Liberals above zero from 1922|How each party's vote changed with the number of names, election by election. The shaded tests before the war are checks that should show nothing, and do.}}
+
+<!-- wp:paragraph -->
+<p>I wrote down what I would test, and what would count against each idea, before I ran any of these models. Then I tried {{T.n_robust|int}} other ways of asking the same question: different ways of counting the names, weighting big places more, leaving out London, Scotland or any one region, and working seat by seat. Every one of them points the same way, though more than half are too uncertain on their own to rule out no difference at all.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_robust.png|Forest plot of 22 estimates of how Labour's gain changed with memorial names, every one of them to the left of zero, most with error bars crossing zero|The main estimate, top, and the same question asked {{T.n_robust|int}} other ways.}}
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What it does not mean</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>This does not show that grief made people vote Liberal or Conservative. Men did not die at random. The volunteers of 1914 and 1915 came more from some trades than others, and miners, munitions workers and shipbuilders were often kept at home because the war needed them there. Those industrial places were exactly where Labour grew fastest, and I have no figures on industry for 1918 to separate the two. Part of what the memorials measure is who went to war, not only who grieved.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>One more check, which I had not planned, points the same way. In the places where Labour put up a candidate in 1918, the names barely predict how well it did. Most of the gap comes from where Labour stood at all: places with more names on their memorials had fewer Labour candidates. That is a story about local parties and unions as much as about voters.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Whatever the reason, the old picture of a grieving country turning to Labour does not fit the map. In Italy and Germany the parties that gained from the dead were the ones that rejected the peace. In Britain the war had been won, and the party that claimed the victory was Lloyd George's coalition. The places with most names, if they leaned anywhere, leaned that way.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The memorial names come from the War Memorials Register, grouped into places; for each place I took the one community memorial with the most names of the dead, so a man named on a village cross, a church board and a works roll counts once. That gives {{n.names|int}} names across Great Britain. The election results come from my map of <a href="https://maps.tristanhotham.com/elections-since-1832/">every general election since 1832</a>. Because there are no maps of the 1918 seats, I put seats and memorials into the same {{n.units|int}} areas: English counties with their big towns and London boroughs as separate areas, Welsh counties and Scottish council areas. I checked the matching by testing whether places named after a borough seat ended up in it: {{link.v1_pc|f0}}% went to the right seat and {{link.v1_unit_pc|f0}}% to the right area.</p>
+<!-- /wp:paragraph -->
+
+{{IMG|b_dist.png|Bar chart of how many areas have each number of memorial names per 1,000 voters, centred near 40, with 18 big towns and London boroughs below 10 shown in grey|Names per 1,000 voters across the areas. The grey bars are big towns whose city-wide roll of honour is missing from the register.}}
+
+<!-- wp:paragraph -->
+<p>The caveats matter. Memorial names are not a census of the dead: many memorials have no count, men were sometimes named where their parents lived rather than where they did, and {{n.units_low|int}} big towns and boroughs, Plymouth, Portsmouth and Bristol among them, have no city-wide roll in the register at all. I left those out of the main comparison and put them back in as a check, which made the gap slightly smaller and less certain. The number of voters is worked out from turnout, and {{n.uncontested18|int}} seats had no contest in 1918. And an area as big as a county lumps a mining valley and a market town together. This is a pattern across places, not a measure of how any family voted.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://maps.tristanhotham.com/war-dead-labour/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.24092044">Read the paper</a></div>
+<!-- /wp:button -->
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/war-dead-labour">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>War memorials: <a href="https://www.iwm.org.uk/memorials">Imperial War Museums, War Memorials Register</a>, reused for non-commercial research. Elections: constituency results 1906 to 1924 from the UK Parliament general election results (Open Parliament Licence), matched to Wikidata. Boundaries: ONS (Open Government Licence). Base map: OpenFreeMap, OpenStreetMap contributors (ODbL).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>Further reading: T. Wilson, The Downfall of the Liberal Party 1914 to 1935 (1966); R. McKibbin, The Evolution of the Labour Party 1910 to 1924 (1974); D. Tanner, Political Change and the Labour Party 1900 to 1918 (1990); J. M. Winter, The Great War and the British People (1985); A. King, Memorials of the Great War in Britain (1998); D. Acemoglu and others, War, Socialism, and the Rise of Fascism, Quarterly Journal of Economics (2022).</li>
+<!-- /wp:list-item -->
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

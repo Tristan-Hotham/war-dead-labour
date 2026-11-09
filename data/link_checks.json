@@ -1,0 +1,706 @@
+{
+ "n_places_gb": 17689,
+ "places_moved": 357,
+ "places_offshore": 80,
+ "seats_1918": 579,
+ "seats_1918_nudged": 55,
+ "seat_ids_1918": 464,
+ "merged_boroughs": {
+  "Battersea": [
+   "Battersea North",
+   "Battersea South"
+  ],
+  "Bethnal Green": [
+   "North East Bethnal Green",
+   "South West Bethnal Green"
+  ],
+  "Birkenhead": [
+   "Birkenhead East",
+   "Birkenhead West"
+  ],
+  "Birmingham": [
+   "Birmingham Aston",
+   "Birmingham Deritend",
+   "Birmingham Duddeston",
+   "Birmingham Edgbaston",
+   "Birmingham Erdington",
+   "Birmingham Handsworth",
+   "Birmingham King's Norton",
+   "Birmingham Ladywood",
+   "Birmingham Moseley",
+   "Birmingham Sparkbrook",
+   "Birmingham West",
+   "Birmingham Yardley"
+  ],
+  "Bradford": [
+   "Bradford Central",
+   "Bradford East",
+   "Bradford North",
+   "Bradford South"
+  ],
+  "Bristol": [
+   "Bristol Central",
+   "Bristol East",
+   "Bristol North",
+   "Bristol South",
+   "Bristol West"
+  ],
+  "Camberwell": [
+   "Camberwell North",
+   "Camberwell North West"
+  ],
+  "Cardiff": [
+   "Cardiff Central",
+   "Cardiff East",
+   "Cardiff South"
+  ],
+  "Croydon": [
+   "Croydon North",
+   "Croydon South"
+  ],
+  "East Ham": [
+   "East Ham North",
+   "East Ham South"
+  ],
+  "Edinburgh": [
+   "Edinburgh Central",
+   "Edinburgh East",
+   "Edinburgh North",
+   "Edinburgh South",
+   "Edinburgh West"
+  ],
+  "Fulham": [
+   "East Fulham",
+   "West Fulham"
+  ],
+  "Glasgow": [
+   "Glasgow Bridgeton",
+   "Glasgow Camlachie",
+   "Glasgow Cathcart",
+   "Glasgow Central",
+   "Glasgow Gorbals",
+   "Glasgow Govan",
+   "Glasgow Hillhead",
+   "Glasgow Kelvingrove",
+   "Glasgow Maryhill",
+   "Glasgow Partick",
+   "Glasgow Pollok",
+   "Glasgow Shettleston",
+   "Glasgow Springburn",
+   "Glasgow St Rollox",
+   "Glasgow Tradeston"
+  ],
+  "Hackney": [
+   "Hackney Central",
+   "Hackney North",
+   "Hackney South"
+  ],
+  "Hammersmith": [
+   "North Hammersmith",
+   "South Hammersmith"
+  ],
+  "Islington": [
+   "Islington East",
+   "Islington North",
+   "Islington South",
+   "Islington West"
+  ],
+  "Kensington": [
+   "Kensington North",
+   "Kensington South"
+  ],
+  "Kingston upon Hull": [
+   "Central Kingston upon Hull",
+   "East Kingston upon Hull",
+   "North West Kingston upon Hull",
+   "South West Kingston upon Hull"
+  ],
+  "Leeds": [
+   "Leeds Central",
+   "Leeds North",
+   "Leeds North East",
+   "Leeds South",
+   "Leeds South East",
+   "Leeds West"
+  ],
+  "Leicester": [
+   "Leicester East",
+   "Leicester South",
+   "Leicester West"
+  ],
+  "Lewisham": [
+   "Lewisham East",
+   "Lewisham West"
+  ],
+  "Leyton": [
+   "Leyton East",
+   "Leyton West"
+  ],
+  "Liverpool": [
+   "Liverpool East Toxteth",
+   "Liverpool Edge Hill",
+   "Liverpool Everton",
+   "Liverpool Exchange",
+   "Liverpool Fairfield",
+   "Liverpool Kirkdale",
+   "Liverpool Scotland",
+   "Liverpool Walton",
+   "Liverpool Wavertree",
+   "Liverpool West Derby",
+   "Liverpool West Toxteth"
+  ],
+  "Manchester": [
+   "Manchester Ardwick",
+   "Manchester Blackley",
+   "Manchester Clayton",
+   "Manchester Exchange",
+   "Manchester Gorton",
+   "Manchester Hulme",
+   "Manchester Moss Side",
+   "Manchester Platting",
+   "Manchester Rusholme",
+   "Manchester Withington"
+  ],
+  "Middlesbrough": [
+   "East Middlesbrough",
+   "West Middlesbrough"
+  ],
+  "Newcastle upon Tyne": [
+   "Central Newcastle upon Tyne",
+   "East Newcastle upon Tyne",
+   "North Newcastle upon Tyne",
+   "West Newcastle upon Tyne"
+  ],
+  "Nottingham": [
+   "Nottingham Central",
+   "Nottingham East",
+   "Nottingham South",
+   "Nottingham West"
+  ],
+  "Paddington": [
+   "Paddington North",
+   "Paddington South"
+  ],
+  "Plymouth": [
+   "Plymouth Devonport",
+   "Plymouth Drake",
+   "Plymouth Sutton"
+  ],
+  "Portsmouth": [
+   "Portsmouth Central",
+   "Portsmouth North",
+   "Portsmouth South"
+  ],
+  "Rhondda": [
+   "Rhondda East",
+   "Rhondda West"
+  ],
+  "Salford": [
+   "Salford North",
+   "Salford South",
+   "Salford West"
+  ],
+  "Sheffield": [
+   "Sheffield Attercliffe",
+   "Sheffield Brightside",
+   "Sheffield Central",
+   "Sheffield Ecclesall",
+   "Sheffield Hallam",
+   "Sheffield Hillsborough",
+   "Sheffield Park"
+  ],
+  "Southwark": [
+   "Southwark Central",
+   "Southwark North",
+   "Southwark South East"
+  ],
+  "St Pancras": [
+   "St Pancras North",
+   "St Pancras South East",
+   "St Pancras South West"
+  ],
+  "Swansea": [
+   "Swansea East",
+   "Swansea West"
+  ],
+  "Tottenham": [
+   "Tottenham North",
+   "Tottenham South"
+  ],
+  "Walthamstow": [
+   "East Walthamstow",
+   "West Walthamstow"
+  ],
+  "Westminster": [
+   "Westminster Abbey",
+   "Westminster St George's"
+  ],
+  "Willesden": [
+   "Willesden East",
+   "Willesden West"
+  ],
+  "Wolverhampton": [
+   "East Wolverhampton",
+   "West Wolverhampton"
+  ],
+  "Woolwich": [
+   "Woolwich East",
+   "Woolwich West"
+  ]
+ },
+ "n_merged_boroughs": 42,
+ "units_with_1918_seat": 176,
+ "contests_moved": {
+  "1906": 3,
+  "1918": 0,
+  "1922": 0,
+  "1923": 0,
+  "1924": 0,
+  "December 1910": 3,
+  "January 1910": 3
+ },
+ "contests_offshore": {
+  "1906": 5,
+  "1918": 5,
+  "1922": 5,
+  "1923": 5,
+  "1924": 5,
+  "December 1910": 5,
+  "January 1910": 5
+ },
+ "v1_n": 365,
+ "v1_ok": 337,
+ "v1_unit_ok": 354,
+ "v1_bad": [
+  {
+   "place": "Aylesbury",
+   "county": "Oxfordshire",
+   "expect": "Aylesbury",
+   "seat_id": "Henley",
+   "unit": "Oxfordshire (shire)",
+   "seat_d_km": 12.792710204315174
+  },
+  {
+   "place": "Banbury",
+   "county": "West Northamptonshire",
+   "expect": "Banbury",
+   "seat_id": "Daventry",
+   "unit": "West Northamptonshire",
+   "seat_d_km": 26.024391678533366
+  },
+  {
+   "place": "Barnstaple",
+   "county": "Devon",
+   "expect": "Barnstaple",
+   "seat_id": "South Molton",
+   "unit": "Devon (shire)",
+   "seat_d_km": 7.355378795100572
+  },
+  {
+   "place": "Birkenhead",
+   "county": null,
+   "expect": "Birkenhead",
+   "seat_id": "Wirral",
+   "unit": "Wirral",
+   "seat_d_km": 1.241610322625754
+  },
+  {
+   "place": "Bothwell",
+   "county": "North Lanarkshire",
+   "expect": "Bothwell",
+   "seat_id": "Motherwell",
+   "unit": "North Lanarkshire",
+   "seat_d_km": 1.813649982939016
+  },
+  {
+   "place": "Bromley",
+   "county": "Greater London",
+   "expect": "Bromley",
+   "seat_id": "Limehouse",
+   "unit": "Tower Hamlets",
+   "seat_d_km": 0.6112088372036467
+  },
+  {
+   "place": "Camberwell",
+   "county": "Greater London",
+   "expect": "Camberwell",
+   "seat_id": "Peckham",
+   "unit": "Southwark",
+   "seat_d_km": 1.0435450037458904
+  },
+  {
+   "place": "Cardiff",
+   "county": "Rhondda Cynon Taf - Rhondda Cynon Taf",
+   "expect": "Cardiff",
+   "seat_id": "Pontypridd",
+   "unit": "Mid Glamorgan",
+   "seat_d_km": 7.034260492651116
+  },
+  {
+   "place": "Carmarthen",
+   "county": "Sir Gaerfyrddin - Carmarthenshire",
+   "expect": "Carmarthen",
+   "seat_id": "Merthyr",
+   "unit": "Dyfed",
+   "seat_d_km": 6.148869015400429
+  },
+  {
+   "place": "Chatham",
+   "county": "Medway",
+   "expect": "Chatham",
+   "seat_id": "Gillingham",
+   "unit": "Medway",
+   "seat_d_km": 1.8791738446365216
+  },
+  {
+   "place": "Coatbridge",
+   "county": "North Lanarkshire",
+   "expect": "Coatbridge",
+   "seat_id": "Motherwell",
+   "unit": "North Lanarkshire",
+   "seat_d_km": 0.9026163830256599
+  },
+  {
+   "place": "Crewe",
+   "county": "Cheshire East",
+   "expect": "Crewe",
+   "seat_id": "Knutsford",
+   "unit": "Cheshire East",
+   "seat_d_km": 11.10450178999565
+  },
+  {
+   "place": "Deptford",
+   "county": "Greater London",
+   "expect": "Deptford",
+   "seat_id": "Greenwich",
+   "unit": "Greenwich",
+   "seat_d_km": 1.7483664031717543
+  },
+  {
+   "place": "Holborn",
+   "county": "Greater London",
+   "expect": "Holborn",
+   "seat_id": "St Pancras",
+   "unit": "Camden",
+   "seat_d_km": 0.3588256887678688
+  },
+  {
+   "place": "Norwood",
+   "county": "Greater London",
+   "expect": "Norwood",
+   "seat_id": "Brixton",
+   "unit": "Lambeth",
+   "seat_d_km": 1.0932536138087434
+  },
+  {
+   "place": "Paisley",
+   "county": "East Renfrewshire",
+   "expect": "Paisley",
+   "seat_id": "Glasgow",
+   "unit": "Glasgow City",
+   "seat_d_km": 7.5857374476670945
+  },
+  {
+   "place": "Preston",
+   "county": "Lancashire",
+   "expect": "Preston",
+   "seat_id": "Fylde",
+   "unit": "Lancashire (shire)",
+   "seat_d_km": 5.337168797101847
+  },
+  {
+   "place": "Romford",
+   "county": "Greater London",
+   "expect": "Romford",
+   "seat_id": "Upton",
+   "unit": "Newham",
+   "seat_d_km": 1.5251113092491453
+  },
+  {
+   "place": "Rotherham",
+   "county": null,
+   "expect": "Rotherham",
+   "seat_id": "Rother Valley",
+   "unit": "Rotherham",
+   "seat_d_km": 0.2105617607874416
+  },
+  {
+   "place": "Sevenoaks",
+   "county": "Kent",
+   "expect": "Sevenoaks",
+   "seat_id": "Dartford",
+   "unit": "Kent (shire)",
+   "seat_d_km": 5.626794472085217
+  },
+  {
+   "place": "Shoreditch",
+   "county": "Greater London",
+   "expect": "Shoreditch",
+   "seat_id": "Finsbury",
+   "unit": "Islington",
+   "seat_d_km": 0.49878515268005746
+  },
+  {
+   "place": "South Shields",
+   "county": null,
+   "expect": "South Shields",
+   "seat_id": "Jarrow",
+   "unit": "South Tyneside",
+   "seat_d_km": 1.8046286470847996
+  },
+  {
+   "place": "Southwark",
+   "county": "Greater London",
+   "expect": "Southwark",
+   "seat_id": "Camberwell",
+   "unit": "Southwark",
+   "seat_d_km": 0.05463966233301248
+  },
+  {
+   "place": "Swansea",
+   "county": "Castell-nedd Port Talbot - Neath Port Talbot",
+   "expect": "Swansea",
+   "seat_id": "Neath",
+   "unit": "West Glamorgan",
+   "seat_d_km": 5.554927369619467
+  },
+  {
+   "place": "Twickenham",
+   "county": "Greater London",
+   "expect": "Twickenham",
+   "seat_id": "Richmond (Surrey)",
+   "unit": "Richmond upon Thames",
+   "seat_d_km": 2.1750310962871375
+  },
+  {
+   "place": "Wellingborough",
+   "county": "Bedford",
+   "expect": "Wellingborough",
+   "seat_id": "Bedford",
+   "unit": "Bedford",
+   "seat_d_km": 14.775325931249363
+  },
+  {
+   "place": "Westhoughton",
+   "county": null,
+   "expect": "Westhoughton",
+   "seat_id": "Bolton",
+   "unit": "Bolton",
+   "seat_d_km": 7.168095743388472
+  },
+  {
+   "place": "Wirral",
+   "county": null,
+   "expect": "Wirral",
+   "seat_id": "Wallasey",
+   "unit": "Wirral",
+   "seat_d_km": 1.3071497942412116
+  }
+ ],
+ "v2_n": 16255,
+ "v2_ok": 14950,
+ "v2_bad_examples": [
+  {
+   "place": "Llangadog",
+   "county": "Sir Gaerfyrddin - Carmarthenshire",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Reynoldston, Swansea",
+   "county": "Abertawe - Swansea",
+   "unit": "West Glamorgan"
+  },
+  {
+   "place": "Caerdydd/ Cardiff",
+   "county": "Caerdydd - Cardiff",
+   "unit": "South Glamorgan"
+  },
+  {
+   "place": "Porthcawl",
+   "county": "Pen-y-bont ar Ogwr - Bridgend",
+   "unit": "Mid Glamorgan"
+  },
+  {
+   "place": "Oystermouth",
+   "county": "Abertawe - Swansea",
+   "unit": "West Glamorgan"
+  },
+  {
+   "place": "Croesgoch",
+   "county": "Sir Benfro - Pembrokeshire",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "St Ishmaels",
+   "county": "Sir Benfro - Pembrokeshire",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Ponterwyd",
+   "county": "Sir Ceredigion - Ceredigion",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "South Ockendon",
+   "county": "Thurrock",
+   "unit": "Kent (shire)"
+  },
+  {
+   "place": "Ormesby",
+   "county": "Redcar and Cleveland",
+   "unit": "Middlesbrough"
+  },
+  {
+   "place": "St Asaph",
+   "county": "Sir Ddinbych - Denbighshire",
+   "unit": "Clwyd"
+  },
+  {
+   "place": "Ponthenri",
+   "county": "Sir Gaerfyrddin - Carmarthenshire",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Llanon and Llansantffraid",
+   "county": "Sir Ceredigion - Ceredigion",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Bosherton",
+   "county": "Sir Benfro - Pembrokeshire",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Standburn",
+   "county": "Falkirk",
+   "unit": "West Lothian"
+  },
+  {
+   "place": "Blackness",
+   "county": "Falkirk",
+   "unit": "West Lothian"
+  },
+  {
+   "place": "Reddingmuirhead (near Falkirk)",
+   "county": "Falkirk",
+   "unit": "West Lothian"
+  },
+  {
+   "place": "Moray",
+   "county": "Aberdeenshire",
+   "unit": "Moray"
+  },
+  {
+   "place": "Garn Wen Ridge",
+   "county": "Sir Fynwy - Monmouthshire",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Port Skewett",
+   "county": "Sir Fynwy - Monmouthshire",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Lawrenny",
+   "county": "Sir Benfro - Pembrokeshire",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Rogerstone",
+   "county": "Casnewydd - Newport",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Belmont",
+   "county": "Greater London",
+   "unit": "Surrey (shire)"
+  },
+  {
+   "place": "Laleston",
+   "county": "Pen-y-bont ar Ogwr - Bridgend",
+   "unit": "Mid Glamorgan"
+  },
+  {
+   "place": "Llangyfelach  Morriston / Treforys",
+   "county": "Abertawe - Swansea",
+   "unit": "West Glamorgan"
+  },
+  {
+   "place": "Bedwas",
+   "county": "Caerffili - Caerphilly",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Catbrook",
+   "county": "Sir Fynwy - Monmouthshire",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Cynonville",
+   "county": "Castell-nedd Port Talbot - Neath Port Talbot",
+   "unit": "West Glamorgan"
+  },
+  {
+   "place": "Deganwy",
+   "county": "Conwy - Conwy",
+   "unit": "Clwyd"
+  },
+  {
+   "place": "Penyclawdd",
+   "county": "Sir Fynwy - Monmouthshire",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Pentlow",
+   "county": "Suffolk",
+   "unit": "Essex (shire)"
+  },
+  {
+   "place": "Pennant",
+   "county": "Sir Ceredigion - Ceredigion",
+   "unit": "Dyfed"
+  },
+  {
+   "place": "Llandaff",
+   "county": "Caerdydd - Cardiff",
+   "unit": "South Glamorgan"
+  },
+  {
+   "place": "Llanover",
+   "county": "Sir Fynwy - Monmouthshire",
+   "unit": "Gwent"
+  },
+  {
+   "place": "Seaton Burn",
+   "county": "Redcar and Cleveland",
+   "unit": "Middlesbrough"
+  },
+  {
+   "place": "Holywell",
+   "county": "Sir y Fflint - Flintshire",
+   "unit": "Clwyd"
+  },
+  {
+   "place": "Willen Village, Willen",
+   "county": "Milton Keynes",
+   "unit": "Buckinghamshire"
+  },
+  {
+   "place": "Croes Howell",
+   "county": "Wrecsam - Wrexham",
+   "unit": "Clwyd"
+  },
+  {
+   "place": "Llangyfelach",
+   "county": "Abertawe - Swansea",
+   "unit": "West Glamorgan"
+  },
+  {
+   "place": "Llansanffraid Glan Conwy",
+   "county": "Conwy - Conwy",
+   "unit": "Clwyd"
+  }
+ ],
+ "seat_d_km_median": 9.8529274098174,
+ "seat_d_km_p90": 23.4289471682081
+}

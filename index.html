@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The war dead and the rise of Labour | Data study</title>
+<meta name="description" content="Did places that lost more men in the First World War swing harder to Labour in 1918? Memorial names for 17,689 places in Great Britain set against the elections of 1910 to 1924.">
+<meta property="og:title" content="The war dead and the rise of Labour">
+<meta property="og:description" content="Places with more names on their First World War memorials swung less to Labour in 1918 and 1922, not more.">
+<meta property="og:image" content="https://maps.tristanhotham.com/war-dead-labour/header.png">
+<meta property="og:url" content="https://maps.tristanhotham.com/war-dead-labour/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+:root{
+  --bg:#FBF7EF; --fg:#22201C; --muted:#6B655B; --rule:#E2DACB; --card:#FFFDF8; --border:#CFC5B2;
+  --hot:#B4322A; --lib:#D99A1E; --cool:#2E5C9A;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#191714; --fg:#EEE8DC; --muted:#ABA392; --rule:#37322A; --card:#211E1A; --border:#4A4337; --hot:#E8796C; --lib:#E9B455; --cool:#8DB1DE; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#191714; --fg:#EEE8DC; --muted:#ABA392; --rule:#37322A; --card:#211E1A; --border:#4A4337; --hot:#E8796C; --lib:#E9B455; --cool:#8DB1DE; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 64px}
+a{color:inherit;text-decoration-color:var(--hot);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--hot);color:#fff;padding:5px 8px;font-weight:500}
+h2{font:800 34px/1.06 var(--display);letter-spacing:-.01em;margin:54px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--hot);display:block;letter-spacing:.1em;margin-bottom:10px}
+p{margin:0 0 16px}
+.lede{font-size:20px}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:8px}
+ul.plain{padding-left:20px} ul.plain li{margin:4px 0}
+details{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:10px 0;margin:18px 0;font-size:16px}
+summary{font:500 13px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--hot);border-color:var(--hot);color:#fff}
+footer{border-top:4px solid var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:4px 8px;cursor:pointer;min-height:28px}
+.figure{margin:22px 0}
+.figure img{width:100%;height:auto;display:block;border:1px solid var(--border)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:22px 0}
+.stat b{display:block;font:900 38px/1 var(--display);color:var(--hot)}
+.stat span{font:400 13px/1.35 var(--mono);color:var(--muted)}
+table.t{width:100%;border-collapse:collapse;font:400 13.5px/1.4 var(--mono);margin:12px 0 4px}
+table.t th{text-align:left;font-weight:500;border-bottom:2px solid var(--fg);padding:5px 6px 5px 0}
+table.t td{border-bottom:1px solid var(--rule);padding:5px 6px 5px 0;vertical-align:top}
+table.t td.r,table.t th.r{text-align:right}
+.tscroll{overflow-x:auto}
+.callout{border-left:4px solid var(--hot);padding:4px 0 4px 16px;margin:22px 0;font-size:19px}
+/* map */
+.topbar{height:42px;display:flex;align-items:center;gap:14px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:0 max(14px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--border);background:var(--bg);overflow:hidden;white-space:nowrap}
+.tb-name{font:800 17px/1 var(--display);color:var(--fg);text-decoration:none}
+.tb-k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tb-links{margin-left:auto;display:flex;gap:16px;align-items:center;font:500 12px/1 var(--mono)}
+.tb-links a{text-decoration:none}.tb-links a:hover{text-decoration:underline}
+.mapband{width:100vw;margin-left:calc(50% - 50vw)}
+.pane{position:relative;height:calc(100vh - 43px);height:calc(100svh - 43px);min-height:480px;border-bottom:1px solid var(--border);background:#EDEAE4;overflow:hidden}
+#map{position:absolute;inset:0}
+.cartouche{position:absolute;left:12px;top:12px;z-index:5;max-width:min(340px,calc(100% - 24px));background:rgba(255,253,248,.96);color:#22201C;border:1px solid #CFC5B2;border-top:4px solid #B4322A;border-radius:3px;padding:10px 14px;box-shadow:0 2px 12px rgba(40,30,10,.15)}
+.cartouche h1{font:900 clamp(22px,2.3vw,29px)/1.02 var(--display);letter-spacing:-.015em;margin:6px 0 0}
+.cartouche .dek{font-size:13.5px;line-height:1.38;margin:6px 0 0}
+.cartouche .byline{font-size:11px;color:#6B655B;margin-top:6px}
+.cartouche .kicker{color:#6B655B}
+.ct-fold{position:absolute;right:6px;top:4px;width:26px;height:26px;border:0;background:none;color:#B4322A;font:500 16px/1 var(--mono);cursor:pointer;padding:0}
+.ct-toggle{display:none;font:800 15px/1 var(--display);color:#22201C;background:none;border:0;padding:2px 0;cursor:pointer;min-height:30px}
+.cartouche.folded .ct-body,.cartouche.folded .ct-fold{display:none}.cartouche.folded .ct-toggle{display:block}.cartouche.folded{padding:4px 11px}
+.ov-top{position:absolute;z-index:6;right:54px;top:10px;max-width:calc(100% - 480px);display:flex;flex-direction:column;gap:6px;align-items:flex-end;pointer-events:none}
+.ov-top>*{pointer-events:auto}
+.srch{position:relative;width:min(340px,100%)}
+.srch input{width:100%;font:400 15px/1 var(--mono);background:rgba(255,253,248,.97);color:#22201C;border:1px solid #A89C85;border-radius:3px;padding:9px 10px;min-height:40px;box-shadow:0 1px 4px rgba(40,30,10,.15)}
+.srch input:focus-visible,.chip:focus-visible,.lp label:focus-within{outline:2px solid #B4322A;outline-offset:2px}
+.sug{position:absolute;left:0;right:0;top:100%;margin:2px 0 0;padding:0;list-style:none;background:#FFFDF8;border:1px solid #A89C85;max-height:300px;overflow:auto;display:none;box-shadow:0 3px 10px rgba(40,30,10,.2);z-index:12;color:#22201C;font:400 14px/1.3 var(--mono)}
+.sug li{padding:8px 10px;cursor:pointer;border-bottom:1px solid #EEE7DA}
+.sug li span{color:#6B655B;font-size:12px}
+.sug li[aria-selected="true"],.sug li:hover{background:#F3ECDF}
+.chips{display:flex;gap:6px;overflow-x:auto;max-width:100%;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;font:500 12px/1 var(--mono);background:rgba(255,253,248,.96);color:#22201C;border:1px solid #A89C85;border-radius:999px;padding:8px 11px;cursor:pointer;min-height:34px;white-space:nowrap;box-shadow:0 1px 3px rgba(40,30,10,.12)}
+.chip[aria-pressed="true"]{background:#B4322A;color:#fff;border-color:#7F1D1A}
+.chip.lyr{background:#22201C;color:#FBF7EF;border-color:#22201C}
+.lp{position:absolute;right:54px;top:150px;z-index:9;background:rgba(255,253,248,.98);border:1px solid #A89C85;border-radius:4px;padding:10px 12px 8px;font:400 13px/1.3 var(--mono);color:#22201C;box-shadow:0 3px 12px rgba(40,30,10,.22);display:none;min-width:250px;max-height:calc(100% - 200px);overflow:auto}
+.lp.open{display:block}
+.lp h4{margin:0 0 6px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#6B655B}
+.lp label{display:flex;gap:8px;align-items:center;padding:5px 0;cursor:pointer;min-height:30px}
+.lp input{accent-color:#B4322A;width:16px;height:16px;flex:none}
+.era{display:flex;gap:4px;flex-wrap:wrap}
+.era .chip{padding:7px 9px}
+.era[hidden]{display:none}
+.keys{position:absolute;left:12px;bottom:28px;z-index:4;background:rgba(255,253,248,.96);border:1px solid #A89C85;border-radius:3px;padding:8px 10px;font:400 11.5px/1.25 var(--mono);color:#22201C;max-width:260px;box-shadow:0 2px 8px rgba(40,30,10,.15)}
+.keys b{display:block;font:600 12.5px/1.2 var(--body);margin-bottom:5px}
+.keys .ramp{display:flex;gap:2px;margin:3px 0 1px}.keys .ramp i{flex:1;height:11px}
+.keys .ends{display:flex;justify-content:space-between;color:#6B655B;font-size:10.5px}
+.keys .row{display:flex;align-items:center;gap:6px;margin:4px 0 0}
+.keys .dot{width:11px;height:11px;border-radius:50%;flex:none;border:1.5px solid #fff;box-shadow:0 0 0 1px #6B655B}
+.keys .hatch{width:16px;height:11px;flex:none;background:repeating-linear-gradient(45deg,#D8D3CA 0 2px,#F1EEE8 2px 4px);border:1px solid #BDB6A9}
+.keys .nt{color:#6B655B;font-size:10.5px;margin-top:4px}
+.maplibregl-popup-content{background:#FFFDF8;color:#22201C;font:400 13px/1.45 var(--mono);border:1px solid #A89C85;border-radius:4px;padding:10px 12px;box-shadow:0 3px 12px rgba(40,30,10,.22);max-width:320px;max-height:60vh;overflow:auto}
+.maplibregl-popup-content b.t{display:block;font:800 18px/1.15 var(--display);margin-bottom:3px;padding-right:14px}
+.maplibregl-popup-content table{border-collapse:collapse;margin:5px 0}
+.maplibregl-popup-content td{padding:1px 8px 1px 0;vertical-align:top}
+.maplibregl-popup-content td:first-child{color:#6B655B}
+.maplibregl-popup-content .nt{color:#6B655B;font-size:11.5px;margin:5px 0 0}
+.maplibregl-popup-content a{color:#B4322A}
+.maplibregl-ctrl-attrib{font:400 11px/1.3 var(--mono)!important}
+.nojs{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 14px var(--mono);color:#6B655B;padding:20px;text-align:center}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:1000px){.ov-top{left:12px;right:54px;max-width:none;align-items:flex-start}.lp{left:12px;right:auto}.cartouche{top:104px}}
+@media (max-width:700px){
+  .tb-k,.tb-links a.x{display:none}.topbar{gap:10px}.tb-name{font-size:15px}.tb-links{gap:10px}
+  .pane{height:80svh;min-height:540px}
+  .lp{top:100px;left:8px;right:8px;min-width:0;max-height:calc(100% - 150px)}
+  .ov-top{left:8px;top:8px;right:52px}
+  .cartouche{left:8px;top:100px;max-width:calc(100% - 16px);padding:8px 12px}
+  .cartouche h1{font-size:22px}
+  .ct-toggle{display:block}.ct-fold{display:none}
+  .keys{left:8px;bottom:24px;max-width:190px;padding:6px 8px;font-size:10.5px}
+  .chip{padding:8px 8px;font-size:11.5px}
+  h2{font-size:28px}
+  .pane.pop .keys{display:none}
+  .keys .long{display:none}
+}
+</style></head>
+<body>
+<div class="topbar">
+  <a class="tb-name" href="#mapWrap">The war dead and the rise of Labour</a>
+  <span class="tb-k">Data study · 2026</span>
+  <nav class="tb-links"><a class="x" href="#essay">About</a><button class="theme" id="theme" aria-label="Toggle dark mode">◐</button><a href="https://doi.org/10.5281/zenodo.24092044">Paper</a><a class="x" href="https://github.com/Tristan-Hotham/war-dead-labour">Data and code</a></nav>
+</div>
+<div class="mapband">
+  <div class="pane" id="mapWrap" data-fullscreen-map role="application" aria-label="Map of Great Britain: First World War memorial names per elector and Labour's vote, 1910 to 1924">
+    <div id="map"></div>
+    <div class="nojs" id="nojs">Loading the map. It needs JavaScript and WebGL.</div>
+    <div class="cartouche" id="cartouche">
+      <button class="ct-toggle" id="ctToggle" aria-expanded="true">The war dead and the rise of Labour ▾</button>
+      <button class="ct-fold" id="ctFold" title="Fold the title" aria-label="Fold the title">▴</button>
+      <div class="ct-body">
+        <div class="kicker"><b>Data study</b><span>Great Britain, 1910 to 1924</span></div>
+        <h1>The war dead and the rise of Labour</h1>
+        <p class="dek">Did places that lost more men in the First World War turn to Labour? Names on community war memorials per 1,000 voters of 1918, for 176 counties and boroughs, beside the vote in every election from 1910 to 1924. Tap anywhere for the numbers.</p>
+        <div class="byline">Dr Tristan Hotham · Independent researcher · 2026</div>
+      </div>
+    </div>
+    <div class="ov-top">
+      <div class="srch"><input type="search" id="q" placeholder="Find a town, memorial or seat" aria-label="Find a town, memorial or seat" autocomplete="off"><ul class="sug" id="sug" role="listbox"></ul></div>
+      <div class="chips" role="group" aria-label="Colour the map by">
+        <button class="chip" data-mode="rate" aria-pressed="true">War dead</button>
+        <button class="chip" data-mode="lab" aria-pressed="false">Labour vote</button>
+        <button class="chip" data-mode="gain" aria-pressed="false">Labour gain</button>
+        <button class="chip lyr" id="lyrBtn" aria-expanded="false" aria-controls="lp">Layers</button>
+      </div>
+      <div class="era chips" id="era" role="group" aria-label="Election" hidden>
+        <button class="chip" data-e="d1910" aria-pressed="false">Dec 1910</button>
+        <button class="chip" data-e="e1918" aria-pressed="true">1918</button>
+        <button class="chip" data-e="e1922" aria-pressed="false">1922</button>
+        <button class="chip" data-e="e1923" aria-pressed="false">1923</button>
+        <button class="chip" data-e="e1924" aria-pressed="false">1924</button>
+      </div>
+    </div>
+    <div class="lp" id="lp" role="dialog" aria-label="Map layers">
+      <h4>Layers</h4>
+      <label><input type="checkbox" id="lyU" checked> Counties and boroughs (shaded)</label>
+      <label><input type="checkbox" id="lyB" checked> Their borders</label>
+      <label><input type="checkbox" id="lyP"> Memorial places (sized by names per 1,000 residents)</label>
+      <label><input type="checkbox" id="lyS"> 1918 seats (Labour share)</label>
+      <label><input type="checkbox" id="lyL" checked> Base map place names</label>
+    </div>
+    <div class="keys" id="keys"></div>
+  </div>
+</div>
+<div class="wrap" id="essay">
+<p class="lede" style="margin-top:6px">In December 1918, a month after the Armistice, Britain held its first general election in eight years, on an electorate 2.8 times as large in Great Britain. Labour's share of the vote in contested seats in Great Britain rose from 6.8% in December 1910 to 23.8%, and kept rising. Did the places that had lost the most men lead the way? I set the names on community war memorials against the vote, place by place.</p>
+<div class="byline">Dr Tristan Hotham · Independent researcher · 2026 · Memorials: Imperial War Museums War Memorials Register · Elections: general election results 1906 to 1924 · Base map: OpenFreeMap Positron (OpenStreetMap)</div>
+<div class="stats">
+<div class="stat"><b>44</b><span>names on community memorials per 1,000 voters of 1918 in the typical county or borough</span></div>
+<div class="stat"><b>-2.9</b><span>points of Labour gain from 1910 to 1918 for one standard deviation (22 per 1,000) more names</span></div>
+<div class="stat"><b>4.8</b><span>points less Labour gain by 1922, for the same step: the gap widened</span></div>
+<div class="stat"><b>0 of 6</b><span>pre-war placebo tests in which the names predict the vote</span></div>
+</div>
+
+<h2><span class="n">01 · The question</span>Grief, anger, or loyalty?</h2>
+<p>Historians have long argued about why Labour replaced the Liberals as the main party of the left after the First World War. One side points to the 1918 Representation of the People Act, which gave the vote to most working men and to women over 30; another to the war itself, which split the Liberals and drew trade unions into the state. Studies of other countries suggest that heavy local losses could push voters in different directions: towards the radical left or right in Italy and Germany, towards the governing coalition in a patriotic "khaki" election, or simply out to vote. As far as I can find, no one has tested whether British places that lost more men voted differently between the parties. The difficulty is the data: there is no list of deaths by constituency, and no maps of the 1918 seats.</p>
+<p>So I used two datasets I had already built: the names on every First World War memorial in the Imperial War Museums' register, counted once per place, and the result in every constituency from 1906 to 1924. I wrote down in advance what I would test and what would count against each idea, then linked the two by county and borough.</p>
+
+<h2><span class="n">02 · The answer</span>More names, less Labour</h2>
+<p>Across the 131 counties and boroughs with a usable count and a contested seat in both elections, Labour's share rose on average by 17.6 points between December 1910 and 1918. Where there were more names per voter, it rose by less. For each standard deviation more names (22 per 1,000 voters), Labour's gain was 2.9 points smaller (95% confidence interval 0.1 to 5.7), after allowing for region, how built up the place was, and how strong Labour and the Liberals had been in 1910. That is about a fifth of the usual spread in Labour's gain. It is not a large effect, and on its own the evidence for it is moderate: if there were no real link, a pattern this strong would turn up by chance with probability about 0.04, but I tested four outcomes, and corrected for that the figure is 0.16.</p>
+<div class="figure"><img src="img/scatter.jpg" alt="Scatter chart of county and borough units: names on memorials per 1,000 electors against Labour's gain from 1910 to 1918, both adjusted for controls, with a downward sloping line" loading="lazy"><p class="src">Labour's gain from 1910 to 1918 against memorial names per 1,000 voters, adjusted for region, density and the 1910 vote.</p></div>
+<p>The Coalition of Lloyd George and the Conservatives, whose candidates carried the "coupon", did a little better where there were more names (+3.7 points per standard deviation), but the interval runs from -1.8 to 9.2, so I cannot tell it from no difference. Neither the Liberal collapse nor turnout followed the names.</p>
+
+<h2><span class="n">03 · Over time</span>The gap widened after the war</h2>
+<p>If the names were just picking up something about a place, like its industry or its politics before the war, they should predict how it voted before the war too. They do not. I ran the same model on the changes between 1906 and December 1910, between the two elections of 1910, and on the 1910 vote itself: in none of the six tests do the names predict anything. After the war the gap grows. By 1922 Labour's gain since 1910 was 4.8 points smaller for each standard deviation more names (2.1 to 7.4), and the Liberals held up 4.4 points better. By 1924 the Labour gap had narrowed to 2.7 points.</p>
+<div class="figure"><img src="img/path.jpg" alt="Chart of coefficients with confidence intervals for Labour and the Liberals: near zero for the pre-war changes, Labour negative from 1918 to 1924 and most negative in 1922, the Liberals positive from 1922" loading="lazy"><p class="src">How the vote changed with memorial names, election by election. The shaded pre-war tests are placebos.</p></div>
+<div class="figure"><img src="img/maps.jpg" alt="Two maps of Great Britain: memorial names per 1,000 electors, highest in the Scottish Highlands and islands, and Labour's gain from 1910 to 1918, highest in the coalfields and the industrial north" loading="lazy"><p class="src">Left: memorial names per 1,000 voters of 1918. Right: Labour's gain from 1910 to 1918.</p></div>
+
+<h2><span class="n">04 · Does it hold?</span>Twenty-one ways of asking</h2>
+<p>I re-ran the main model 21 ways: weighting by the size of the electorate, changing the baseline election, measuring the names differently, dropping London or Scotland, dropping unusual places, and working at the level of single constituencies. All 21 estimates are negative and 8 are clearly different from zero; the others are smaller or less precise. Leaving out each region in turn gives estimates from 2.2 to 3.4 points smaller, though in 5 of the 11 runs the interval includes zero. Shuffling the names at random within regions, 2,000 times, gives a pattern as strong as the real one 2.7% of the time.</p>
+<div class="figure"><img src="img/robust.jpg" alt="Forest plot of 22 estimates of the change in Labour's gain per standard deviation more memorial names; all lie to the left of zero" loading="lazy"><p class="src">The main estimate under other samples, measures and models.</p></div>
+<p>One check changes how I read the result. In counties and boroughs where Labour stood a candidate in 1918, the names barely predict how well it did (-1.0 points, interval -3.5 to 1.5). Much of the gap seems to come from where Labour stood at all: places with more names had fewer Labour candidates. I did not plan this check, so treat it as a lead.</p>
+
+<h2><span class="n">05 · What it means</span>Not a story of grief turned to anger</h2>
+<p>The data give no support to the idea that heavy local losses drove voters to Labour in 1918. If anything, the places with more names stayed with the older parties for longer. This is a pattern, not proof of cause. Men did not die at random: the volunteers of 1914 and 1915 came disproportionately from some trades and places, and men in mining, munitions and shipbuilding were often kept at home. Those industrial places were also where Labour grew fastest. I have no figures on industry for 1918, so part of what the memorials measure may be who volunteered, not who grieved. The dead also could not vote. Even if every one of them would have voted Labour and turned out like everyone else, their absence could explain at most about 2.2 of the 2.9 points per standard deviation in 1918, and realistically far less; it cannot explain the larger gap in 1922.</p>
+<div class="callout">Where more men's names went up on the memorial, Labour's advance was slower, and the gap was widest in 1922.</div>
+
+<h2><span class="n">06 · How I did this</span>Memorials, seats and a plan written first</h2>
+<p><b>Memorials.</b> The Imperial War Museums' War Memorials Register, grouped into 17,689 places in Great Britain. For each place I take the one community memorial with the most names of the dead (a church memorial where no community memorial gives a count), so that a man named on a village cross, a church board and a works roll is counted once. That gives 717,287 names, close to the roughly 744,000 dead and missing from the whole British Isles. Many memorials carry no count, and 18 big towns and London boroughs have no city-wide roll in the register at all (Plymouth, Portsmouth and Bristol among them); I leave those out of the main models, and put them back in as a check.</p>
+<div class="figure"><img src="img/dist.jpg" alt="Histogram of memorial names per 1,000 electors across 176 units, centred near 40, with 18 units below 10 shown in grey" loading="lazy"><p class="src">Memorial names per 1,000 voters of 1918 across the units.</p></div>
+<p><b>Seats and units.</b> There are no digital boundary maps of the 1918 constituencies, so I used a common container: each English county, with its big towns, cities and London boroughs as separate units, the Welsh counties and the Scottish council areas, 176 units in all. Seats from 1906 to 1924 go into units by a point for each seat, and memorials by their own position. The voters of 1918 are worked out from each seat's votes and turnout. As a check I also linked each memorial to its nearest 1918 seat: of 365 places that share their name with a nearby borough seat, 92% went to that seat and 97% to the right unit.</p>
+<p><b>The plan.</b> Before running any model of the vote, I wrote down the hypotheses, the main model, the checks and what would count against each idea. Two changes were made before any model was run, both because of the memorial data, and both are in the notes. The main model compares units within the same region (ordinary least squares, robust standard errors), with population density and the 1910 Labour and Liberal shares as controls.</p>
+<p><b>What this cannot say.</b> Memorial names are not a census of the dead: counts are missing, rounded or include men who lived elsewhere, and a place's memorial may be a parish, a village or part of a town. Electorates are worked out, not recorded, and 79 seats were not contested in 1918. A county unit is a blunt instrument: a mining valley and a market town in the same county share one number. And places that lost more men differed in other ways that I cannot measure.</p>
+<details><summary>Sources and licences</summary>
+<ul class="plain">
+<li>War memorials: <a href="https://www.iwm.org.uk/memorials">Imperial War Museums, War Memorials Register</a>, reused for non-commercial research with credit, compiled in my study <a href="https://maps.tristanhotham.com/war-memorials/">How many names on your war memorial?</a></li>
+<li>Elections: constituency results 1906 to 1924 from my study <a href="https://maps.tristanhotham.com/elections-since-1832/">Every UK general election since 1832</a> (UK Parliament results, Open Parliament Licence v3.0, matched to Wikidata).</li>
+<li>Boundaries: ONS local authority districts (Dec 2023) and counties, Open Government Licence v3.0.</li>
+<li>Base map: OpenFreeMap Positron style, OpenStreetMap contributors (ODbL). MapLibre GL JS 4.7.1 (BSD 3-Clause).</li>
+<li>Because the memorial register is reused on non-commercial terms, the derived data and the text are CC BY-NC 4.0; the code is MIT.</li>
+</ul></details>
+<div class="cta"><a class="p" href="https://doi.org/10.5281/zenodo.24092044">Read the paper</a><a href="https://github.com/Tristan-Hotham/war-dead-labour">Data and code</a><a href="https://blog.tristanhotham.com/2026/10/31/war-dead-labour/">Blog post</a></div>
+<footer>
+<p>Dr Tristan Hotham, Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+<p>Cite as: Hotham, T. (2026) The war dead and the rise of Labour: First World War memorial names and the British vote, 1910 to 1924. Zenodo. <a href="https://doi.org/10.5281/zenodo.24092044">10.5281/zenodo.24092044</a></p>
+<p>Code: <a href="https://github.com/Tristan-Hotham/war-dead-labour">github.com/Tristan-Hotham/war-dead-labour</a> (MIT). Text, figures and derived data CC BY-NC 4.0.</p>
+<p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="js/page.js?v=20261111"></script>
+<!-- map-fullscreen v1 -->
+<style id="mfs-style">
+.mfs-btn{position:absolute;top:10px;right:10px;z-index:1001;width:34px;height:34px;border:2px solid rgba(0,0,0,.25);border-radius:4px;background:#fff;color:#222;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.mfs-btn:hover{background:#f2f2f2}
+.mfs-btn svg{width:18px;height:18px}
+.mfs-host.mfs-btn-left .mfs-btn{right:auto;left:54px}
+.mfs-fake{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;z-index:100000!important;border-radius:0!important}
+html.mfs-lock,html.mfs-lock body{overflow:hidden!important}
+:fullscreen.mfs-host{width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;margin:0!important;border-radius:0!important}
+</style>
+<script id="mfs-script">
+(function(){
+  var ICON_OPEN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+  var ICON_CLOSE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>';
+  function poke(){setTimeout(function(){window.dispatchEvent(new Event('resize'));},60);setTimeout(function(){window.dispatchEvent(new Event('resize'));},400);}
+  function realFS(){return document.fullscreenElement||document.webkitFullscreenElement;}
+  function add(el){
+    if(el.__mfs)return; el.__mfs=1;
+    var cs=getComputedStyle(el); if(cs.position==='static')el.style.position='relative';
+    el.classList.add('mfs-host');
+    // avoid clashing with a top-right Leaflet control (e.g. "Map layers")
+    var tr=el.querySelector('.leaflet-top.leaflet-right');
+    if(tr&&tr.children.length){ el.classList.add('mfs-btn-left'); }
+    var b=document.createElement('button'); b.type='button'; b.className='mfs-btn';
+    b.title='Full screen map'; b.setAttribute('aria-label','Full screen map'); b.innerHTML=ICON_OPEN;
+    ['click','dblclick','mousedown','touchstart','wheel'].forEach(function(t){b.addEventListener(t,function(e){e.stopPropagation();},{passive:t!=='click'});});
+    function setIcon(on){b.innerHTML=on?ICON_CLOSE:ICON_OPEN;b.title=on?'Exit full screen':'Full screen map';b.setAttribute('aria-label',b.title);}
+    function exitFake(){el.classList.remove('mfs-fake');document.documentElement.classList.remove('mfs-lock');setIcon(false);poke();}
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      if(el.classList.contains('mfs-fake')){exitFake();return;}
+      if(realFS()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
+      var req=el.requestFullscreen||el.webkitRequestFullscreen;
+      if(req){ try{ var p=req.call(el); if(p&&p.catch)p.catch(function(){el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke();}); }catch(err){el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke();} }
+      else { el.classList.add('mfs-fake');document.documentElement.classList.add('mfs-lock');setIcon(true);poke(); }
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&el.classList.contains('mfs-fake'))exitFake();});
+    ['fullscreenchange','webkitfullscreenchange'].forEach(function(t){document.addEventListener(t,function(){setIcon(realFS()===el);poke();});});
+    el.appendChild(b);
+  }
+  function scan(){
+    var els=document.querySelectorAll('[data-fullscreen-map], .leaflet-container, .maplibregl-map, .mapboxgl-map');
+    els.forEach(function(el){
+      if(el.closest('.mfs-host')&&!el.classList.contains('mfs-host'))return;
+      var r=el.getBoundingClientRect(); if(r.width<200||r.height<150)return;
+      add(el);
+    });
+  }
+  function start(){scan(); var n=0; var t=setInterval(function(){scan(); if(++n>20)clearInterval(t);},500);}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start); else start();
+})();
+</script>
+<!-- /map-fullscreen -->
+
+<script src="https://maps.tristanhotham.com/assets/site-nav.js" defer></script>
+</body>
+</html>
