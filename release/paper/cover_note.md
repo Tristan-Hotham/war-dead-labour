@@ -1,0 +1,15 @@
+# Cover note: where to submit
+
+The paper is about 8,500 words of text before the references (about 10,200 including references, tables and appendix), with 5 figures and 7 tables. Word limits and charges below were checked on the journals' author pages in 2026; confirm again before submitting.
+
+1. **Social Science History** (Cambridge University Press, for the Social Science History Association). Limit: main text no longer than 12,000 words including footnotes and references; abstract up to 250 words (Cambridge author instructions, "Preparing your materials"). The instructions list no submission or publication charge; gold open access is optional (Cambridge's hybrid model). Fits as it stands. Best fit for the quantitative historical design.
+2. **Electoral Studies** (Elsevier). Guide for authors: "Original research articles should be 8,000-10,000 words in length" (what counts is not stated). Elsevier's subscription route has no charge to authors and open access is an optional paid route, but I could not confirm the open access terms on the guide page itself: check before submitting. Fits if references count; the appendix tables could move to supplementary material for safety.
+3. **Twentieth Century British History** (Oxford University Press). Articles "between 7,000 and 10,000 words in length (including footnotes)"; open access is optional with a charge (or via a Read and Publish agreement), so the standard route is free to authors. Fits, but would need the methods shortened and more engagement with the political history literature; references would become footnotes.
+
+Alternative: **Historical Methods** (Taylor and Francis), if the memorial-to-constituency linkage is made the main contribution (limits and charges not checked).
+
+Framing for any of these: present the result as a well-identified rejection of the radicalisation hypothesis (no positive association) plus a suggestive negative association that is not significant after correction for four outcomes.
+
+## Summary of the contribution (for a cover letter, 150 words)
+
+Historians have long debated whether the First World War, rather than the 1918 franchise, explains Labour's replacement of the Liberals, and studies of Italy and Germany link local war losses to post-war radicalism. Britain has lacked a test because deaths and the 1918 constituencies share no common geography. This paper links 717,287 names on community war memorials, counted once per place, to every Great Britain contest from 1906 to 1924 through 176 county and borough units, with a validated linkage and a plan fixed before outcome models were run. Places with more names per elector saw smaller, not larger, Labour gains in 1918 (-2.9 points per standard deviation; 95% CI -5.7 to -0.1), with no association before the war. The negative association is modest and not significant after correction for four outcomes; the paper reads it as evidence against loss driving Labour's advance, and discusses enlistment and occupational structure as explanations.
